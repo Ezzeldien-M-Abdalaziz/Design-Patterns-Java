@@ -1,7 +1,7 @@
 package SOLID_principles;
 
 public class OrderManagement {
-    public void processOrder() {
-        System.out.println("Processing Order: " + order.getName() + "now ...");
+    public void processOrder(Order order) {
+        System.out.println("Processing order: " + order.getName() + " now...");
     }
 }
