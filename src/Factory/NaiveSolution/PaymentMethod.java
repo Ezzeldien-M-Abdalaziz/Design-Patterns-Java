@@ -1,4 +1,4 @@
-package Factory;
+package Factory.NaiveSolution;
 
 public abstract class PaymentMethod {
     private String cardHolder;

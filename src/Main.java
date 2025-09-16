@@ -1,25 +1,14 @@
-import Singleton.LogLevel;
-import Singleton.SingletonSolutionEagerInitializationApproach.Logger;
+import Factory.FactorySolution.CardTypes;
+import Factory.FactorySolution.PaymentMethodFactory;
+import Factory.FactorySolution.PaymentProcessor;
+
 
 public class Main {
     public static void main(String[] args) {
-        LogLevel logLevel = LogLevel.DEBUG;
 
+        PaymentProcessor paymentProcessor = new PaymentProcessor(new PaymentMethodFactory());
+        paymentProcessor.processPayment(CardTypes.VISA , 100 , "s" , "1231231231" , "123" , "3242342");
 
-
-//        Logger logger = new Logger();
-//        logger.setLogLevel(logLevel);
-//        logger.logInfo("log info");
-
-
-        Logger logger = Logger.getInstance();
-        logger.setLogLevel(logLevel);
-        logger.logInfo("Hello World from EagerInitializationApproach");
-
-
-        Singleton.SingletonSolutionLazyInitializationApproach.Logger logger2 = Singleton.SingletonSolutionLazyInitializationApproach.Logger.getInstance();
-        logger2.setLogLevel(logLevel);
-        logger2.logInfo("Hello World from Singleton LazyInitializationApproach");
 
 
 

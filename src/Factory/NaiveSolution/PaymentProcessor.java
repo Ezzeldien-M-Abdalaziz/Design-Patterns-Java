@@ -1,4 +1,4 @@
-package Factory;
+package Factory.NaiveSolution;
 
 public class PaymentProcessor {
     public void processPayment(String cardType, double amount , String cardHolder , String cardNumber , String cvv , String expiryDate ){

@@ -1,4 +1,4 @@
-package Factory;
+package Factory.NaiveSolution;
 
 public class Visa extends PaymentMethod{
 
