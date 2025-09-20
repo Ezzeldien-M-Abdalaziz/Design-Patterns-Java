@@ -1,3 +1,6 @@
+import Adapter.NaiveSolution.LegacyWeatherService;
+import Adapter.NaiveSolution.TemperatureData;
+import Adapter.NaiveSolution.ThirdPartyWeatherService;
 import Factory.FactorySolution.CardTypes;
 import Factory.FactorySolution.PaymentMethodFactory;
 import Factory.FactorySolution.PaymentProcessor;
@@ -6,8 +9,14 @@ import Factory.FactorySolution.PaymentProcessor;
 public class Main {
     public static void main(String[] args) {
 
-        PaymentProcessor paymentProcessor = new PaymentProcessor(new PaymentMethodFactory());
-        paymentProcessor.processPayment(CardTypes.VISA , 100 , "s" , "1231231231" , "123" , "3242342");
+        ThirdPartyWeatherService WeatherApi = new ThirdPartyWeatherService();
+
+        LegacyWeatherService legacyWeatherService = new LegacyWeatherService(WeatherApi);
+
+//        System.out.println(legacyWeatherService.getTemperature("cairo" , "egypt"));
+        TemperatureData result = legacyWeatherService.getTemperature(111 , 111);
+        System.out.println(result.getTemperatureData());
+
 
 
 
