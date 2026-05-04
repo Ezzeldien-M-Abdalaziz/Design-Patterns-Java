@@ -6,38 +6,30 @@ import Factory.FactorySolution.PaymentMethodFactory;
 import Factory.FactorySolution.PaymentProcessor;
 import Observer.ObserverImp.*;
 import Observer.NaiveSolution.User;
+import Strategy.NaiveSolution.Checkout;
+import Strategy.NaiveSolution.MemberShipType;
+import Strategy.NaiveSolution.PaymentMethod;
+import Strategy.NaiveSolution.Product;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        OnlineMarketPlace marketPlace = new OnlineMarketPlace();
-        Subscriber alice = new Customer("Alice");
-        Subscriber bob = new Customer("Bob");
-        Subscriber charlie = new Customer("Charlie");
-        Subscriber david = new JobFinder("David");
-
-        marketPlace.subscribe(EventType.NEW_PRODUCT , alice);
-        marketPlace.subscribe(EventType.NEW_OFFER , alice);
-
-        marketPlace.subscribe(EventType.NEW_PRODUCT , bob);
+        Product product = new Product("Laptop", 1200.0);
+        double price = product.calculatePrice(MemberShipType.REGULAR);
 
 
-        marketPlace.subscribe(EventType.NEW_PRODUCT , charlie);
-        marketPlace.subscribe(EventType.NEW_OFFER , charlie);
+        Product product2 = new Product("leather", 1100.0);
+        double price2 = product.calculatePrice(MemberShipType.GOLD);
 
-        marketPlace.subscribe(EventType.JOB_OPENING , david);
-
-
-        marketPlace.addNewProduct(new Product("Laptop" , 9.99));
-        marketPlace.addNewOffer(new Offer("50% off on all electronics!"));
-
-        marketPlace.addNewJobOpening("Software Engineer");
+        Product product3 = new Product("Samsung", 1200.0);
+        double price3 = product.calculatePrice(MemberShipType.PREMIUM);
 
 
-
-
-
+        Checkout checkout = new Checkout();
+        checkout.processPayment(price, PaymentMethod.VISA_CARD);
+        checkout.processPayment(price2, PaymentMethod.PAYPAL);
+        checkout.processPayment(price3, PaymentMethod.BANK_TRANSFER);
 
 
 
