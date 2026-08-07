@@ -3,7 +3,7 @@ package Strategy.strategyImp;
 public class Product {
     private String name;
     private double price;
-    private PricingStrategy pricingStrategy;
+    private final PricingStrategy pricingStrategy;
 
     public Product(String name, double price, PricingStrategy pricingStrategy) {
         this.name = name;
@@ -11,6 +11,8 @@ public class Product {
         this.pricingStrategy = pricingStrategy;
     }
 
-    public void calculatePrice() {}
+    public double calculatePrice() {
+        return pricingStrategy.calculatePrice(price);
+    }
 
 }

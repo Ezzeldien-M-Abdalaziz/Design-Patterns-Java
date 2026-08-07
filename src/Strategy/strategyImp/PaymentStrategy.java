@@ -1,5 +1,5 @@
 package Strategy.strategyImp;
 
 public interface PaymentStrategy {
-    public void calculatePrice();
+    public void calculatePrice(double amount);
 }

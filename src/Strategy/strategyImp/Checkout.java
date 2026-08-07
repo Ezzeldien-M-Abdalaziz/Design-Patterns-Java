@@ -1,9 +1,13 @@
 package Strategy.strategyImp;
 
 public class Checkout {
-    private PaymentStrategy strategy;
+    private final PaymentStrategy paymentStrategy;
 
-    public void processPayment(){
+    public Checkout(PaymentStrategy paymentStrategy) {
+        this.paymentStrategy = paymentStrategy;
+    }
 
+    public void processPayment(double amount) {
+        paymentStrategy.calculatePrice(amount);
     }
 }

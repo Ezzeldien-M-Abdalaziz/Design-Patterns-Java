@@ -1,6 +1,6 @@
 package Strategy.strategyImp;
 
 public interface PricingStrategy {
-    public void calculatePrice();
+    public double calculatePrice(double price);
 
 }
